@@ -1,0 +1,31 @@
+*.class
+*.log
+
+# sbt specific
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+
+# Scala-IDE specific
+.scala_dependencies
+.idea
+.idea/*
+.idea_modules/*
+data
+logs
+.worksheet
+
+# Swagger
+rest/conf/swagger.yml
+rest/public/rest.json
+
+# Graph
+**/*.gv
+**/*.svg
