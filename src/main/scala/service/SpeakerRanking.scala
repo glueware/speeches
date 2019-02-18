@@ -56,8 +56,8 @@ class SpeakerRanking[F[_]](val speechRepositoryFactory: SpeechRepositoryAlg[F])
           criteriumName ->
             aggregateSpeakerScoring(
               query(criteriumName).aggregator,
-              next(criteriumName),
-              aggregated(criteriumName))
+              aggregated(criteriumName),
+              next(criteriumName))
       ).toSeq: _*)
     }
 

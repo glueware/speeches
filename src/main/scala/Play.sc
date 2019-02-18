@@ -8,4 +8,4 @@ val anIO = IO(1)
 
 val aLotOfIOs = List(anIO, anIO)
 
-val ioOfList = aLotOfIOs.parSequence
+Parallel.parSequence(aLotOfIOs)
