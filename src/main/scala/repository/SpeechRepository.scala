@@ -7,7 +7,6 @@ import cats.effect.IO
 import fs2.Stream
 import model._
 
-import scala.concurrent.Future
 
 trait SpeechRepositoryAlg[F[_]] {
   def apply(urL: URL): Source[F]
@@ -24,16 +23,16 @@ trait Source[F[_]] {
   protected def fold(scoringMap: ScoringMap, speech: Speech): ScoringMap = ???
 }
 
-object ExecutionSpeechRepository extends SpeechRepositoryAlg[Future] {
-  class _Source() extends Source[Future] {
-    type G[A] = Stream[Future, A]
+object ExecutionSpeechRepository extends SpeechRepositoryAlg[IO] {
+  class _Source() extends Source[IO] {
+    type G[A] = Stream[IO, A]
 
     def list: G[Speech] = ???
 
-    def score(query: Query): Future[ScoringMap] = ???
+    def score(query: Query): IO[ScoringMap] = ???
   }
 
-  def apply(urL: URL): Source[Future] = ???
+  def apply(urL: URL): Source[IO] = ???
 }
 
 object TestSpeechRepository extends SpeechRepositoryAlg[Id] {

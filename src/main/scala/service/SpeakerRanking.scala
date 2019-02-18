@@ -9,7 +9,7 @@ import repository.{Source, SpeechRepositoryAlg}
 
 import org.json4s._
 
-abstract class SpeakerRankingAlg[F[_]] {
+trait SpeakerRankingAlg[F[_]] {
   val speechRepositoryFactory: SpeechRepositoryAlg[F]
 
   def rankSpeakers[G[_]](query: Query, sources: Set[Source[F]]): F[SpeakerRankingResult]
