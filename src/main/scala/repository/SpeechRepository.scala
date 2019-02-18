@@ -50,7 +50,7 @@ object TestSpeechRepository extends SpeechRepositoryAlg[Id] {
 
   def apply(urL: URL): Source[Id] = {
     val someTestData: List[Speech] = ???
-    new _Source(List())
+    new _Source(someTestData)
   }
 
 }
