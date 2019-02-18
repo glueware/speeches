@@ -1,7 +1,7 @@
 package service
 
 import cats.implicits._
-import cats.{Applicative, Traverse}
+import cats.Applicative
 import java.net.URL
 
 import model._
@@ -21,7 +21,7 @@ trait SpeakerRankingAlg[F[_]] {
 }
 
 class SpeakerRanking[F[_]](val speechRepositoryFactory: SpeechRepositoryAlg[F])
-                          (implicit traverse: Traverse[F], applicative: Applicative[F])
+                          (implicit applicative: Applicative[F])
   extends SpeakerRankingAlg[F] {
 
   def rankSpeakers[G[_]](query: Query, sources: Set[Source[F]]): F[SpeakerRankingResult] = {
